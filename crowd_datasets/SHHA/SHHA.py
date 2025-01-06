@@ -95,7 +95,7 @@ class SHHA(Dataset):
 def load_data(img_gt_path, train):
     img_path, gt_path = img_gt_path
     gt_path = gt_path.split('/')
-    gt_path[-1] = 'GT_' + gt_path[-1]
+    # gt_path[-1] = 'GT_' + gt_path[-1]
     gt_path = '/'.join(gt_path)
     # load the images
     img = cv2.imread(img_path)

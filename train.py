@@ -48,11 +48,11 @@ def get_args_parser():
                         help="line number of anchor points")
     # dataset parameters
     parser.add_argument('--dataset_file', default='SHHA')
-    parser.add_argument('--data_root', default='./datasets/ver1',
+    parser.add_argument('--data_root', default='./datasets/part_A_final',
                         help='path where the dataset is')
     parser.add_argument('--output_dir', default='./log',
                         help='path where to save, empty for no saving')
-    parser.add_argument('--checkpoints_dir', default='./ckpt',
+    parser.add_argument('--checkpoints_dir', default='./checkpoints',
                         help='path where to save checkpoints, empty for no saving')
     parser.add_argument('--tensorboard_dir', default='./runs',
                         help='path where to save, empty for no saving')
@@ -69,8 +69,8 @@ def get_args_parser():
     return parser
 
 def main(args):
-    wandb.init(project="P2PNet", reinit=True)
-    wandb.config.update(args)
+    #wandb.init(project="P2PNet", reinit=True)
+    #wandb.config.update(args)
     os.environ["CUDA_VISIBLE_DEVICES"] = '{}'.format(args.gpu_id)
     # create the logging file
     run_log_name = os.path.join(args.output_dir, 'run_log.txt')
@@ -83,7 +83,7 @@ def main(args):
     print(args)
     with open(run_log_name, "a") as log_file:
         log_file.write("{}".format(args))
-    device = torch.device('cuda')
+    device = torch.device('cpu')
     # fix the seed for reproducibility
     seed = args.seed + utils.get_rank()
     torch.manual_seed(seed)
@@ -91,7 +91,7 @@ def main(args):
     random.seed(seed)
     # get the P2PNet model
     model, criterion = build_model(args, training=True)
-    wandb.watch(model)
+    #wandb.watch(model)
     # move to GPU
     model.to(device)
     criterion.to(device)

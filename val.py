@@ -24,7 +24,7 @@ def createFolder(directory):
 def get_args_parser():
     parser = argparse.ArgumentParser('Set parameters for training P2PNet', add_help=False)
 
-    parser.add_argument('--weight_path', type=str, default='ckpt/best_mae.pth',
+    parser.add_argument('--weight_path', type=str, default='checkpoints/best_mae.pth',
                         help="Path to the pretrained model. If set, only the mask head will be trained")
     parser.add_argument('--backbone', default='vgg16_bn', type=str,
                         help="Name of the convolutional backbone to use")
@@ -40,7 +40,7 @@ def get_args_parser():
     parser.add_argument('--line', default=2, type=int,
                         help="line number of anchor points")
     parser.add_argument('--dataset_file', default='SHHA')
-    parser.add_argument('--data_root', default='./datasets/ver1',
+    parser.add_argument('--data_root', default='./datasets/part_A_final',
                         help='path where the dataset is')
     parser.add_argument('--output_dir', default='./log',
                         help='path where to save, empty for no saving')

@@ -34,7 +34,7 @@ def get_args_parser():
 
     parser.add_argument('--output_dir', default='./',
                         help='path where to save')
-    parser.add_argument('--weights', default='./ckpt/vgg16bn_best_mae.pth',
+    parser.add_argument('--weights', default='./checkpoints/vgg16bn_best_mae.pth',
                         help='path where the trained weights saved')
 
     parser.add_argument('--gpu_id', default=0, type=int, help='the gpu used for evaluation')

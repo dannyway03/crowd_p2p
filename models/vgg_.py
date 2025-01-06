@@ -25,8 +25,8 @@ model_urls = {
 
 
 model_paths = {
-    'vgg16_bn': '/usr/src/app/crowd/CrowdCounting-P2PNet/checkpoints/vgg16_bn-6c64b313.pth',
-    'vgg16': '/usr/src/app/crowd/CrowdCounting-P2PNet/checkpoints/vgg16-397923af.pth',
+    'vgg16_bn': './checkpoints/vgg16_bn-6c64b313.pth',
+    'vgg16': './checkpoints/vgg16-397923af.pth',
 
 }
 
