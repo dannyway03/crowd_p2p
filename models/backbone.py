@@ -150,7 +150,7 @@ class Backbone_CSPResNeXt(BackboneBase_CSPResNeXt):
         super().__init__(backbone)
 
 def build_backbone(args):
-    if 'vgg16_bn' == args.backbone:
+    if 'vgg16_bn' == args.backbone or 'vgg16' == args.backbone:
         backbone = Backbone_VGG(args.backbone)
     elif 'resnet50' == args.backbone:
         backbone = Backbone_ResNet(args.backbone)
